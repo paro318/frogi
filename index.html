@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frogi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Tangerine|Roboto|Inknut+Antiqua|Lobster"
+      rel="stylesheet"
+    />
+    <style>
+      @keyframes frogJump {
+        0%,
+        20%,
+        30%,
+        55%,
+        65%,
+        75%,
+        100% {
+          transform: translateY(0); /* Frog at rest position */
+        }
+        10% {
+          transform: translateY(-90px); /* Frog jumps up */
+        }
+        60% {
+          transform: translateY(-50px); /* Smaller jump at the end */
+        }
+        70% {
+          transform: translateY(-50px); /* Smaller jump at the end */
+        }
+      }
+      .frog-jump {
+        animation: frogJump 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+      }
+
+      .shaking-image:hover {
+        animation: shake 0.5s ease-in-out infinite;
+      }
+
+      .shake {
+        animation: shake 0.5s ease-in-out infinite;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              lobster: ['Lobster', 'cursive'],
+              tangerine: ['Tangerine', 'cursive'],
+              inknut: ['Inknut Antiqua', 'serif'],
+              roboto: ['Roboto', 'sans-serif'],
+            },
+            animation: {
+              float: 'float 6s ease-in-out infinite',
+              'fade-in-down': 'fadeInDown 1s ease-out',
+              'fade-in-up': 'fadeInUp 1s ease-out',
+              'pulse-slow': 'pulse 3s infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            },
+            colors: {
+              'deep-frog': '#83982f',
+              'light-frog': '#ADC71E',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-white min-h-screen">
+    <!-- Hero Section -->
+    <section
+      class="flex flex-col md:flex-row border-red-200 gap-2 bg-white min-h-screen w-screen z-[100] relative"
+    >
+      <div
+        class="bg-white w-full md:w-1/2 flex flex-col justify-center items-center border-green-200"
+      >
+        <div class="relative flex justify-center items-end w-full p-6">
+          <div class="w-[20%] border-red-500">
+            <img
+              src="2.jpeg"
+              alt="Frosted Dream"
+              class="w-full frog-jump rounded-full"
+              style="animation-delay: 0.5s"
+            />
+          </div>
+        </div>
+        <div
+          class="flex justify-center items-start flex-col p-0 md:pl-6 lg:pl-16 gap-4"
+        >
+          <div class="p-4 md:pl-10">
+            <h1
+              class="font-lobster text-center md:text-left w-full text-deep-frog text-3xl md:text-7xl lg:text-9xl text-deep-pink animate-fade-in-down mb-6 text-shadow"
+            >
+              Meet Frogi
+            </h1>
+            <p
+              class="font-roboto text-center md:text-left text-deep-frog text-base md:text-xl text-brown-600 animate-fade-in-up"
+            >
+              Get ready to hop into the world of Frogi ($FROGI), the meme coin
+              that's all about good vibes and even better rewards. We're
+              building a fun-loving community where everyone's invited to join
+              the party. So, grab your lily pads and get ready to ribbit!
+            </p>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-4 w-full"
+          >
+            <a
+              class="bg-deep-frog text-white px-4 py-1 border-[1px] border-deep-frog rounded hover:bg-light-frog shaking-image"
+              >Buy frogi</a
+            >
+            <a
+              class="hover:bg-deep-frog text-white px-4 py-1 border-[1px] border-deep-frog rounded bg-light-frog shaking-image"
+              >Join Community</a
+            >
+          </div>
+        </div>
+        <div class="relative flex justify-between items-center w-full p-6">
+          <div class="w-[20%] h-full border-green-500">
+            <img
+              src="1.jpeg"
+              alt="Frosted Dream"
+              class="w-full frog-jump rounded-full"
+              style="animation-delay: 1s"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="relative w-full md:w-1/2 flex flex-col justify-center items-center border-blue-500"
+      >
+        <div class="w-[20%] absolute top-[10%] left-0 z-10 border-blue-500">
+          <img
+            src="1.jpeg"
+            alt="Frosted Dream"
+            class="w-full frog-jump rounded-full"
+            style="animation-delay: 3s"
+          />
+        </div>
+        <div
+          class="w-[20%] absolute bottom-[12%] -left-[20%] z-10 border-red-500"
+        >
+          <img
+            src="1.jpeg"
+            alt="Frosted Dream"
+            class="w-full frog-jump rounded-full"
+            style="animation-delay: 2s"
+          />
+        </div>
+        <div
+          class="w-[20%] absolute -top-[55%] md:top-[10%] right-0 z-10 border-yellow-500"
+        >
+          <img
+            src="1.jpeg"
+            alt="Frosted Dream"
+            class="w-full frog-jump rounded-full"
+            style="animation-delay: 2.5s"
+          />
+        </div>
+
+        <div class="w-[20%] absolute right-0 top-2/3 z-10">
+          <img
+            src="2.jpeg"
+            alt="Frosted Dream"
+            class="w-full frog-jump rounded-full"
+            style="animation-delay: 1.5s"
+          />
+        </div>
+        <img
+          src="2.jpeg"
+          alt="Frosted Dream"
+          class="w-full frog-jump rounded-full"
+        />
+      </div>
+      <h3
+        class="text-base md:text-xl font-bold bg-deep-frog text-white text-left p-2 px-4 rounded-full absolute bottom-10 md:left-1/2 md:-translate-x-1/2 w-full md:w-fit flex flex-col gap-1 md:flex-row justify-center items-center"
+      >
+        <p class="w-fit mx-auto">Contract Address:</p>
+        <p class="w-fit mx-auto">Coming Soon...</p>
+      </h3>
+    </section>
+
+    <section
+      class="flex flex-col gap-16 px-4 md:px-16 pb-16 bg-[url('/3.jpeg')] mt-16 rounded-3xl"
+    >
+      <div
+        class="bg-white w-full md:w-fit h-fit mx-auto p-8 rounded-3xl flex flex-col gap-4 border-t-0 border-deep-frog shadow-2xl hover:scale-105 transition-transform frog-jump"
+        style="animation-delay: 0.7s"
+      >
+        <h2
+          class="font-lobster font-bold text-2xl md:text-5xl text-deep-frog text-center text-brown-600"
+        >
+          About Frogi
+        </h2>
+        <p
+          class="text-lg md:text-xl text-center max-w-3xl mx-auto leading-relaxed text-deep-frog"
+        >
+          Frogi emerged from the depths of the crypto swamp, bringing with it a
+          wave of good vibes and meme magic. Tired of the seriousness of the
+          crypto world, Frogi set out to create a place where everyone could
+          have fun and earn rewards. With a heart of gold (and a love for
+          flies), Frogi is here to make crypto a little less stressful and a lot
+          more enjoyable.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <!-- Card 1 -->
+
+        <div
+          class="h-1/2 z-10 bg-light-frog text-center w-full h-fit flex justify-center items-center flex-col gap-2 p-6 border-white shadow-lg rounded-xl text-white hover:text-deep-frog hover:bg-white shaking-image"
+        >
+          <h3 class="font-lobster lg:text-5xl mb-2">Community Driven</h3>
+          <p class="font-roboto text-base">
+            Frogi is not just a memecoin, it's a fun and vibrant community!
+          </p>
+        </div>
+        <!-- Card 2 -->
+
+        <div
+          class="h-1/2 z-10 bg-light-frog text-center w-full h-fit flex justify-center items-center flex-col gap-2 p-6 border-white shadow-lg rounded-xl text-white hover:text-deep-frog hover:bg-white shaking-image"
+        >
+          <h3 class="font-lobster lg:text-5xl mb-2">Zero Taxes</h3>
+          <p class="font-roboto text-base">
+            Enjoy trading with zero buy or sell taxes. No fees, just pure fun!
+          </p>
+        </div>
+        <!-- Card 3 -->
+
+        <div
+          class="h-1/2 z-10 bg-light-frog text-center w-full h-fit flex justify-center items-center flex-col gap-2 p-6 border-white shadow-lg rounded-xl text-white hover:text-deep-frog hover:bg-white shaking-image"
+        >
+          <h3 class="font-lobster lg:text-5xl mb-2">1 Billion Supply</h3>
+          <p class="font-roboto text-base">
+            The total supply of Frogi (FROGI) is capped at 1 billion tokens.
+          </p>
+        </div>
+        <!-- Card 4 -->
+
+        <div
+          class="h-1/2 z-10 bg-light-frog text-center w-full h-fit flex justify-center items-center flex-col gap-2 p-6 border-white shadow-lg rounded-xl text-white hover:text-deep-frog hover:bg-white shaking-image"
+        >
+          <h3 class="font-lobster lg:text-5xl mb-2">Adventure Awaits</h3>
+          <p class="font-roboto text-base">
+            Join Frogi on exciting adventures across the crypto universe!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="p-10 bg-white relative">
+      <h2
+        class="font-lobster text-5xl text-deep-frog text-center mb-12 bg-white p-4 rounded w-fit mx-auto"
+      >
+        Tokenomics
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8 z-10">
+        <div
+          class="bg-transparent p-6 rounded-xl flex flex-col gap-2 items-center z-10"
+        >
+          <h3 class="font-inknut text-2xl mb-4 text-deep-frog">Supply</h3>
+          <p class="text-xl text-light-frog">1 Billion $FROGI</p>
+        </div>
+        <div
+          class="bg-transparent p-6 rounded-xl flex flex-col gap-2 items-center z-10"
+        >
+          <h3 class="font-inknut text-2xl mb-4 text-deep-frog">No Taxes</h3>
+          <p class="text-xl text-light-frog text-center">
+            Enjoy 0% Buy/Sell taxes
+          </p>
+        </div>
+        <div
+          class="bg-transparent p-6 rounded-xl flex flex-col gap-2 items-center z-10"
+        >
+          <h3 class="font-inknut text-2xl mb-4 text-deep-frog">Contract</h3>
+          <p class="text-xl text-light-frog">Renounced</p>
+        </div>
+        <div
+          class="bg-transparent p-6 rounded-xl flex flex-col gap-2 items-center z-10"
+        >
+          <h3 class="font-inknut text-2xl mb-4 text-deep-frog">Launch</h3>
+          <p class="text-xl text-light-frog">Rug free Launch</p>
+        </div>
+      </div>
+
+      <div
+        class="w-[20%] md:w-[10%] absolute top-[25%] md:top-[10%] left-[10%] z-0"
+      >
+        <img
+          src="1.jpeg"
+          alt="Frosted Dream"
+          class="w-full frog-jump rounded-full"
+          style="animation-delay: 3s"
+        />
+      </div>
+      <div class="w-[20%] md:w-[10%] absolute bottom-[10%] left-[5%] z-0">
+        <img
+          src="1.jpeg"
+          alt="Frosted Dream"
+          class="w-full frog-jump rounded-full"
+          style="animation-delay: 0.5s"
+        />
+      </div>
+      <div
+        class="w-[20%] md:w-[10%] absolute bottom-[40%] left-1/2 -translate-x-1/2 z-0"
+      >
+        <img
+          src="2.jpeg"
+          alt="Frosted Dream"
+          class="w-full frog-jump rounded-full"
+          style="animation-delay: 2s"
+        />
+      </div>
+      <div class="w-[20%] md:w-[10%] absolute top-[10%] right-[10%] z-0">
+        <img
+          src="1.jpeg"
+          alt="Frosted Dream"
+          class="w-full frog-jump rounded-full"
+          style="animation-delay: 2.5s"
+        />
+      </div>
+
+      <div class="w-[20%] md:w-[10%] absolute right-0 top-2/3 z-0">
+        <img
+          src="2.jpeg"
+          alt="Frosted Dream"
+          class="w-full frog-jump rounded-full"
+          style="animation-delay: 1.5s"
+        />
+      </div>
+
+      <div class="flex flex-col justify-center items-center gap-4 w-full">
+        <span class="left-1/2 -translate-x-1/2 bottom-[20%] animate-bounce">
+          <svg
+            fill="#83982f"
+            height="44px"
+            width="44px"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 490.4 490.4"
+            xml:space="preserve"
+          >
+            <g>
+              <g>
+                <path
+                  d="M490.4,245.2C490.4,110,380.4,0,245.2,0S0,110,0,245.2s110,245.2,245.2,245.2S490.4,380.4,490.4,245.2z M24.5,245.2
+            c0-121.7,99-220.7,220.7-220.7s220.7,99,220.7,220.7s-99,220.7-220.7,220.7S24.5,366.9,24.5,245.2z"
+                />
+                <path
+                  d="M253.9,360.4l68.9-68.9c4.8-4.8,4.8-12.5,0-17.3s-12.5-4.8-17.3,0l-48,48V138.7c0-6.8-5.5-12.3-12.3-12.3
+            s-12.3,5.5-12.3,12.3v183.4l-48-48c-4.8-4.8-12.5-4.8-17.3,0s-4.8,12.5,0,17.3l68.9,68.9c2.4,2.4,5.5,3.6,8.7,3.6
+            S251.5,362.8,253.9,360.4z"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+        <a
+          class="bg-deep-frog text-white px-4 py-1 border-[1px] border-deep-frog rounded hover:bg-light-frog hover:text-deep-frog shaking-image text-2xl font-bold"
+        >
+          Buy frogi
+        </a>
+      </div>
+    </section>
+    <section
+      class="flex flex-col md:flex-row justify-center items-center h-fit md:h-[50vh] overflow-hidden my-12 frog-jump"
+    >
+      <div class="flex-1 overflow-hidden z-0">
+        <img src="/6.jpeg" class="w-full h-full z-0" />
+      </div>
+      <div class="flex-1 overflow-hidden z-0">
+        <img src="/4.jpeg" class="w-full h-full z-0" />
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer
+      class="bg-deep-frog flex flex-col md:flex-row text-white relative justify-center items-center p-4 md:px-16"
+    >
+      <div class="container mx-auto px-4 py-16">
+        <div class="text-center">
+          <div
+            class="inline-block bg-white rounded-full rounded-xl px-8 py-4 mb-8"
+          >
+            <h3 class="text-xl text-deep-frog w-full">
+              Contract Address: coming soon...
+            </h3>
+          </div>
+
+          <h1 class="font-lobster text-5xl mb-8">FROGI</h1>
+
+          <div class="flex justify-center items-center gap-8 mb-8">
+            <a
+              href="#"
+              class="text-white hover:scale-110 transform transition-transform duration-300"
+            >
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <!-- Twitter/X icon -->
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+            </a>
+            <a href="#">
+              <img
+                src="logo.png"
+                alt="Logo"
+                class="w-24 h-24 object-contain bg-white rounded-full w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-white hover:scale-110 transform transition-transform duration-300"
+            >
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <!-- Telegram icon -->
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.623 4.823-4.351c.192-.18-.043-.277-.297-.097l-5.945 3.734-2.57-.801c-.556-.183-.566-.566.12-.837l10.033-3.863c.469-.176.881.107.696.643z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="inline-block bg-deep-pink rounded-xl px-8 py-4 shake">
+            <h3 class="text-xl font-bold">JOIN THE AWESOME COMMUNITY</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </body>
+</html>
